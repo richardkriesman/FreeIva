@@ -136,11 +136,7 @@ namespace FreeIva
 					var freeIvaModule = FreeIva.CurrentPart.GetModule<ModuleFreeIva>();
 					if (freeIvaModule != null && freeIvaModule.allowsUnbuckling)
 					{
-						if (buckled)
-						{
-							ScreenMessages.PostScreenMessage($"{str_Unbuckle} [{Settings.UnbuckleKey}]", 2f, ScreenMessageStyle.LOWER_CENTER);
-						}
-						else
+						if (!buckled)
 						{
 							ScreenMessages.PostScreenMessage($"{str_EnterSeat} [{GameSettings.CAMERA_MODE.primary}]", 2f, ScreenMessageStyle.LOWER_CENTER);
 						}
@@ -737,7 +733,6 @@ namespace FreeIva
 			if (feedbackEnabled)
 			{
 				PlaySeatBuckleAudio(OriginalSeat);
-				ScreenMessages.PostScreenMessage(str_Unbuckled, 1f, ScreenMessageStyle.LOWER_CENTER);
 			}
 
 			DisablePartHighlighting(true);
